@@ -17,8 +17,8 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
 		<!-- NuGet -->
-		<Authors>author</Authors>
-		<Copyright>Copyright © author and contributors</Copyright>
+		<Authors>Mohammed Sadiq</Authors>
+		<Copyright>Copyright © Mohammed Sadiq and contributors</Copyright>
 		<IsPackable>True</IsPackable>
 		<PackageProjectUrl>https://github.com/mohammedmsadiq/Plugin.Maui.CustomWebview</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/mohammedmsadiq/Plugin.Maui.CustomWebview</RepositoryUrl>
