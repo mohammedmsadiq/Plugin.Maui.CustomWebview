@@ -28,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.NUGET_API_KEY }}
       - name: Upload package as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Plugin.Maui.Webview
           path: src/Plugin.Maui.Webview/bin/Release/*.nupkg
