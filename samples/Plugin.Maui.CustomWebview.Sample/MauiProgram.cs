@@ -17,7 +17,7 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddTransient<MainPage>();
-		builder.Services.AddSingleton<IWebview>(Webview.Default);
+		builder.Services.AddSingleton<ICustomWebview>(CustomWebview.Default);
 
 		return builder.Build();
 	}

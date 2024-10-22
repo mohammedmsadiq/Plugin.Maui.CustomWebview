@@ -3,7 +3,7 @@
 /// <summary>
 /// TODO: Provide relevant comments for your APIs
 /// </summary>
-public interface IWebview
+public interface ICustomWebview
 {
 	// TODO Define your plugin interface
 }
