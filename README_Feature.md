@@ -7,14 +7,13 @@ NuGet.org allows only images from certain domains. Complete list is here: https:
 In case of GitHub there is required a raw URI of icon file - direct link to github.com domain is not permitted.
 (Tip: to obtain raw URI, open the .png image file on GitHub page, click right mouse button on image and then select 'Open image in new tab')
 -->
-![nuget.png](https://raw.githubusercontent.com/jfversluis/Plugin.Maui.CustomWebview/main/nuget.png)
+
 # Plugin.Maui.CustomWebview
 
 `Plugin.Maui.CustomWebview` provides the ability to do this amazing thing in your .NET MAUI application.
 
 ## Install Plugin
 
-[![NuGet](https://img.shields.io/nuget/v/Plugin.Maui.CustomWebview.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.Maui.CustomWebview/)
 
 Available on [NuGet](http://www.nuget.org/packages/Plugin.Maui.CustomWebview).
 
