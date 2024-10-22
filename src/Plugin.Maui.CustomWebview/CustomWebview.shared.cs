@@ -1,15 +1,15 @@
 ﻿namespace Plugin.Maui.CustomWebview;
 
-public static class Webview
+public static class CustomWebview
 {
-	static IWebview? defaultImplementation;
+	static ICustomWebview? defaultImplementation;
 
 	/// <summary>
 	/// Provides the default implementation for static usage of this API.
 	/// </summary>
-	public static IWebview Default =>
+	public static ICustomWebview Default =>
 		defaultImplementation ??= new WebviewImplementation();
 
-	internal static void SetDefault(IWebview? implementation) =>
+	internal static void SetDefault(ICustomWebview? implementation) =>
 		defaultImplementation = implementation;
 }
