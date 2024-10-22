@@ -23,12 +23,12 @@ jobs:
           "version-without-v=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Pack
         run: dotnet pack src\Plugin.Maui.Webview.sln -c Release -p:PackageVersion=${{ steps.get_version.outputs.version-without-v }}
-      - name: Push
-        run: dotnet nuget push src\Plugin.Maui.Webview\bin\Release\Plugin.Maui.Webview.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.NUGET_API_KEY }}
       - name: Upload package as artifact
         uses: actions/upload-artifact@v4
         with:
           name: Plugin.Maui.Webview
           path: src/Plugin.Maui.Webview/bin/Release/*.nupkg
+      - name: Push
+        run: dotnet nuget push src\Plugin.Maui.Webview\bin\Release\Plugin.Maui.Webview.${{ steps.get_version.outputs.version-without-v }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.NUGET_API_KEY }}
