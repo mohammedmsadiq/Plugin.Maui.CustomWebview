@@ -4,9 +4,9 @@ namespace Plugin.Maui.CustomWebview.Sample;
 
 public partial class MainPage : ContentPage
 {
-	readonly IWebview Webview;
+	readonly ICustomWebview Webview;
 
-	public MainPage(IWebview Webview)
+	public MainPage(ICustomWebview Webview)
 	{
 		InitializeComponent();
 		
