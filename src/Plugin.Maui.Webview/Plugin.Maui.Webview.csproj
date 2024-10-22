@@ -20,8 +20,8 @@
 		<Authors>author</Authors>
 		<Copyright>Copyright © author and contributors</Copyright>
 		<IsPackable>True</IsPackable>
-		<PackageProjectUrl>https://github.com/jfversluis/Plugin.Maui.Webview</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/jfversluis/Plugin.Maui.Webview</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/mohammedmsadiq/Plugin.Maui.Webview</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/mohammedmsadiq/Plugin.Maui.Webview</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>dotnet-maui;maui;plugin;</PackageTags>
 		<IncludeSymbols>True</IncludeSymbols>
