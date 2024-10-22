@@ -8,7 +8,7 @@ public static class CustomWebview
 	/// Provides the default implementation for static usage of this API.
 	/// </summary>
 	public static ICustomWebview Default =>
-		defaultImplementation ??= new WebviewImplementation();
+		defaultImplementation ??= new CustomWebviewImplementation();
 
 	internal static void SetDefault(ICustomWebview? implementation) =>
 		defaultImplementation = implementation;
