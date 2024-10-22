@@ -1,4 +1,4 @@
-# Plugin.Maui.Webview Template
+# Plugin.Maui.CustomWebview Template
 
 [![Create a (Pre)release on NuGet](https://github.com/mohammedmsadiq/Plugin.Maui.Webview/actions/workflows/release-nuget.yml/badge.svg)](https://github.com/mohammedmsadiq/Plugin.Maui.Webview/actions/workflows/release-nuget.yml)
 
@@ -21,7 +21,7 @@ This template contains:
 
 1. Create your own GitHub repository from this one by clicking the "Use this template" button and then "Create a new repository". More information in the [documentation](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template). After that, clone the repo to your local machine.
 
-2. Replace all occurrences of `Plugin.Maui.Webview` with whatever your feature or functionality will be. For instance: `Plugin.Maui.ScreenBrightness` or `Plugin.Maui.Audio`. Of course the name can be anything, but to make it more discoverable it could be a great choice to stick to this naming scheme. You can easily do this with your favorite text-editor and do a replace all on all files.
+2. Replace all occurrences of `Plugin.Maui.CustomWebview` with whatever your feature or functionality will be. For instance: `Plugin.Maui.ScreenBrightness` or `Plugin.Maui.Audio`. Of course the name can be anything, but to make it more discoverable it could be a great choice to stick to this naming scheme. You can easily do this with your favorite text-editor and do a replace all on all files.
 
    2.1 Don't forget to also rename the files and folders on your filesystem.
 
@@ -35,7 +35,7 @@ This template contains:
 
 7. Write your plugin code (under `src`) and add samples to the .NET MAUI sample app (under `samples` folder)
 
-8. Make super sure that your package won't show up as `Plugin.Maui.Webview` on NuGet! If one does, you owe me a drink!
+8. Make super sure that your package won't show up as `Plugin.Maui.CustomWebview` on NuGet! If one does, you owe me a drink!
 
 9. Publish your package to NuGet, a nice guide to do that can be found [here](https://learn.microsoft.com/nuget/nuget-org/publish-a-package). Also see [Publish to NuGet](#publish-to-nuget) below.
 
