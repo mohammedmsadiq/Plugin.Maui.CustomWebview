@@ -1,30 +1,30 @@
 using System.Net.Mime;
-using Plugin.Maui.CustomWebview.Enums;
-using ContentType = Plugin.Maui.CustomWebview.Enums.ContentType;
+using Plugin.Maui.CustomWebView.Enums;
+using WebViewContentType = Plugin.Maui.CustomWebView.Enums.WebViewContentType;
 
-namespace Plugin.Maui.CustomWebview.Implementations;
+namespace Plugin.Maui.CustomWebView.Implementations;
 
-public class WebView
+public partial class ExtendedWebView
 {
     internal static event EventHandler<string> CallbackAdded;
 
-    public static readonly BindableProperty NavigatingProperty = BindableProperty.Create(nameof(Navigating), typeof(bool), typeof(CustomWebview), false);
+    public static readonly BindableProperty NavigatingProperty = BindableProperty.Create(nameof(Navigating), typeof(bool), typeof(ExtendedWebView), false);
 
-    public static readonly BindableProperty SourceProperty = BindableProperty.Create(nameof(Source), typeof(string), typeof(CustomWebview));
+    public static readonly BindableProperty SourceProperty = BindableProperty.Create(nameof(Source), typeof(string), typeof(ExtendedWebView));
 
-    public static readonly BindableProperty ContentTypeProperty = BindableProperty.Create(nameof(ContentType), typeof(ContentType), typeof(CustomWebview), ContentType.Internet);
+    public static readonly BindableProperty ContentTypeProperty = BindableProperty.Create(nameof(ContentType), typeof(WebViewContentType), typeof(ExtendedWebView), WebViewContentType.Internet);
 
-    public static readonly BindableProperty BaseUrlProperty = BindableProperty.Create(nameof(BaseUrl), typeof(string), typeof(CustomWebview));
+    public static readonly BindableProperty BaseUrlProperty = BindableProperty.Create(nameof(BaseUrl), typeof(string), typeof(ExtendedWebView));
 
-    public static readonly BindableProperty CanGoBackProperty = BindableProperty.Create(nameof(CanGoBack), typeof(bool), typeof(CustomWebview), false);
+    public static readonly BindableProperty CanGoBackProperty = BindableProperty.Create(nameof(CanGoBack), typeof(bool), typeof(ExtendedWebView), false);
 
-    public static readonly BindableProperty CanGoForwardProperty = BindableProperty.Create(nameof(CanGoForward), typeof(bool), typeof(CustomWebview), false);
+    public static readonly BindableProperty CanGoForwardProperty = BindableProperty.Create(nameof(CanGoForward), typeof(bool), typeof(ExtendedWebView), false);
 
-    public static readonly BindableProperty EnableGlobalCallbacksProperty = BindableProperty.Create(nameof(EnableGlobalCallbacks), typeof(bool), typeof(CustomWebview), true);
+    public static readonly BindableProperty EnableGlobalCallbacksProperty = BindableProperty.Create(nameof(EnableGlobalCallbacks), typeof(bool), typeof(ExtendedWebView), true);
 
-    public static readonly BindableProperty EnableGlobalHeadersProperty = BindableProperty.Create(nameof(EnableGlobalHeaders), typeof(bool), typeof(CustomWebview), true);
+    public static readonly BindableProperty EnableGlobalHeadersProperty = BindableProperty.Create(nameof(EnableGlobalHeaders), typeof(bool), typeof(ExtendedWebView), true);
 
-    public static readonly BindableProperty UseWideViewPortProperty = BindableProperty.Create(nameof(UseWideViewPort), typeof(bool), typeof(CustomWebview), false);
+    public static readonly BindableProperty UseWideViewPortProperty = BindableProperty.Create(nameof(UseWideViewPort), typeof(bool), typeof(ExtendedWebView), false);
 
     public readonly static Dictionary<string, string> GlobalRegisteredHeaders = new Dictionary<string, string>();
 

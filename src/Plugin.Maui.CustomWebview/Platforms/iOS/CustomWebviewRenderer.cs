@@ -1,13 +1,22 @@
 #if IOS
-namespace Plugin.Maui.CustomWebview;
+using Foundation;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Plugin.Maui.CustomWebView.Enums;
+using Plugin.Maui.CustomWebView.Implementations;
+using System.ComponentModel;
+using UIKit;
+using WebKit;
 
-public class CustomWebviewRenderer : ViewRenderer<CustomWebview, WKWebView>, IWKScriptMessageHandler, IWKUIDelegate
+namespace Plugin.Maui.CustomWebView;
+
+public class CustomWebviewRenderer : ViewRenderer<ExtendedWebView, WKWebView>, IWKScriptMessageHandler, IWKUIDelegate
 {
     public static event EventHandler<WKWebView> OnControlChanged;
 
     public static string BaseUrl { get; set; } = NSBundle.MainBundle.BundlePath;
 
-    FormsNavigationDelegate _navigationDelegate;
+    NavigationDelegate _navigationDelegate;
 
     WKWebViewConfiguration _configuration;
 
@@ -18,7 +27,7 @@ public class CustomWebviewRenderer : ViewRenderer<CustomWebview, WKWebView>, IWK
         var dt = DateTime.Now;
     }
 
-    protected override void OnElementChanged(ElementChangedEventArgs<CustomWebview> e)
+    protected override void OnElementChanged(ElementChangedEventArgs<ExtendedWebView> e)
     {
         base.OnElementChanged(e);
 
@@ -32,7 +41,7 @@ public class CustomWebviewRenderer : ViewRenderer<CustomWebview, WKWebView>, IWK
             DestroyElement(e.OldElement);
     }
 
-    void SetupElement(CustomWebview element)
+    void SetupElement(ExtendedWebView element)
     {
         element.PropertyChanged += OnPropertyChanged;
         element.OnJavascriptInjectionRequest += OnJavascriptInjectionRequest;
@@ -44,7 +53,7 @@ public class CustomWebviewRenderer : ViewRenderer<CustomWebview, WKWebView>, IWK
         SetSource();
     }
 
-    void DestroyElement(CustomWebview element)
+    void DestroyElement(ExtendedWebView element)
     {
         element.PropertyChanged -= OnPropertyChanged;
         element.OnJavascriptInjectionRequest -= OnJavascriptInjectionRequest;
@@ -58,7 +67,7 @@ public class CustomWebviewRenderer : ViewRenderer<CustomWebview, WKWebView>, IWK
 
     void SetupControl()
     {
-        _navigationDelegate = new FormsNavigationDelegate(this);
+        _navigationDelegate = new NavigationDelegate(this);
         _contentController = new WKUserContentController();
         _contentController.AddScriptMessageHandler(this, "invokeAction");
         _configuration = new WKWebViewConfiguration
@@ -73,7 +82,7 @@ public class CustomWebviewRenderer : ViewRenderer<CustomWebview, WKWebView>, IWK
             NavigationDelegate = _navigationDelegate
         };
 
-        CustomWebview.CallbackAdded += OnCallbackAdded;
+        ExtendedWebView.CallbackAdded += OnCallbackAdded;
 
         SetNativeControl(wkWebView);
         OnControlChanged?.Invoke(this, wkWebView);
@@ -84,7 +93,7 @@ public class CustomWebviewRenderer : ViewRenderer<CustomWebview, WKWebView>, IWK
         if (Element == null || string.IsNullOrWhiteSpace(e)) return;
 
         if ((sender == null && Element.EnableGlobalCallbacks) || sender != null)
-            await OnJavascriptInjectionRequest(CustomWebview.GenerateFunctionScript(e));
+            await OnJavascriptInjectionRequest(ExtendedWebView.GenerateFunctionScript(e));
     }
 
     void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -182,7 +191,7 @@ public class CustomWebviewRenderer : ViewRenderer<CustomWebview, WKWebView>, IWK
 
         if (Element.EnableGlobalHeaders)
         {
-            foreach (var header in CustomWebview.GlobalRegisteredHeaders)
+            foreach (var header in ExtendedWebView.GlobalRegisteredHeaders)
             {
                 var key = new NSString(header.Key);
                 if (!headers.ContainsKey(key))

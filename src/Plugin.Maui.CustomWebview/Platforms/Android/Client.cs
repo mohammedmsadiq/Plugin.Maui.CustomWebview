@@ -1,4 +1,16 @@
-namespace Plugin.Maui.CustomWebview;
+using Android.Content;
+using Android.Graphics;
+using Android.Net;
+using Android.Net.Http;
+using Android.OS;
+using Android.Runtime;
+using Android.Webkit;
+using Android.Widget;
+using Plugin.Maui.CustomWebView.Implementations;
+using AndroidWebView = Android.Webkit;
+using Uri = Android.Net.Uri;
+
+namespace Plugin.Maui.CustomWebView;
 
 public class Client : WebViewClient
     {
@@ -180,16 +192,16 @@ public class Client : WebViewClient
             if (renderer.Element == null) return;
 
             // Add Injection Function
-            await renderer.OnJavascriptInjectionRequest(CustomWebView.InjectedFunction);
+            await renderer.OnJavascriptInjectionRequest(ExtendedWebView.InjectedFunction);
 
             // Add Global Callbacks
             if (renderer.Element.EnableGlobalCallbacks)
-                foreach (var callback in CustomWebView.GlobalRegisteredCallbacks)
-                    await renderer.OnJavascriptInjectionRequest(CustomWebView.GenerateFunctionScript(callback.Key));
+                foreach (var callback in ExtendedWebView.GlobalRegisteredCallbacks)
+                    await renderer.OnJavascriptInjectionRequest(ExtendedWebView.GenerateFunctionScript(callback.Key));
 
             // Add Local Callbacks
             foreach (var callback in renderer.Element.LocalRegisteredCallbacks)
-                await renderer.OnJavascriptInjectionRequest(CustomWebView.GenerateFunctionScript(callback.Key));
+                await renderer.OnJavascriptInjectionRequest(ExtendedWebView.GenerateFunctionScript(callback.Key));
 
             renderer.Element.CanGoBack = view.CanGoBack();
             renderer.Element.CanGoForward = view.CanGoForward();

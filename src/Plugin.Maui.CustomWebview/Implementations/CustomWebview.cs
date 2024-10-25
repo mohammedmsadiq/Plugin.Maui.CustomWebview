@@ -1,14 +1,14 @@
 using Newtonsoft.Json;
-using Plugin.Maui.CustomWebview;
-using Plugin.Maui.CustomWebview.Interfaces;
-using Plugin.Maui.CustomWebview.Delegates;
-using Plugin.Maui.CustomWebview.Enums;
-using Plugin.Maui.CustomWebview.Models;
+using Plugin.Maui.CustomWebView;
+using Plugin.Maui.CustomWebView.Interfaces;
+using Plugin.Maui.CustomWebView.Delegates;
+using Plugin.Maui.CustomWebView.Enums;
+using Plugin.Maui.CustomWebView.Models;
 using System.Text;
 
-namespace Plugin.Maui.CustomWebview.Implementations;
+namespace Plugin.Maui.CustomWebView.Implementations;
 
-public class CustomWebview : ICustomWebview, View, IDisposable
+public partial class ExtendedWebView : View, ICustomWebview, IDisposable
 {
     public delegate Task<string> JavascriptInjectionRequestDelegate(string js);
 
@@ -36,9 +36,9 @@ public class CustomWebview : ICustomWebview, View, IDisposable
 
     public readonly Dictionary<string, string> LocalRegisteredHeaders = new Dictionary<string, string>();
 
-    public ContentType ContentType
+    public WebViewContentType ContentType
     {
-        get => (ContentType)GetValue(ContentTypeProperty);
+        get => (WebViewContentType)GetValue(ContentTypeProperty);
         set => SetValue(ContentTypeProperty, value);
     }
 
@@ -89,10 +89,73 @@ public class CustomWebview : ICustomWebview, View, IDisposable
         get => (bool)GetValue(UseWideViewPortProperty);
         set => SetValue(UseWideViewPortProperty, value);
     }
+    WebViewContentType ICustomWebview.ContentType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    string ICustomWebview.Source { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    string ICustomWebview.BaseUrl { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    bool ICustomWebview.EnableGlobalCallbacks { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    bool ICustomWebview.EnableGlobalHeaders { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-    public CustomWebview()
+    bool ICustomWebview.Navigating => throw new NotImplementedException();
+
+    bool ICustomWebview.CanGoBack => throw new NotImplementedException();
+
+    bool ICustomWebview.CanGoForward => throw new NotImplementedException();
+
+    public ExtendedWebView()
     {
         HorizontalOptions = VerticalOptions = LayoutOptions.FillAndExpand;
+    }
+
+    event EventHandler<DecisionHandlers> ICustomWebview.OnNavigationStarted
+    {
+        add
+        {
+            throw new NotImplementedException();
+        }
+
+        remove
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    event EventHandler<string> ICustomWebview.OnNavigationCompleted
+    {
+        add
+        {
+            throw new NotImplementedException();
+        }
+
+        remove
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    event EventHandler<int> ICustomWebview.OnNavigationError
+    {
+        add
+        {
+            throw new NotImplementedException();
+        }
+
+        remove
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    event EventHandler ICustomWebview.OnContentLoaded
+    {
+        add
+        {
+            throw new NotImplementedException();
+        }
+
+        remove
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public void GoBack()
@@ -231,6 +294,46 @@ public class CustomWebview : ICustomWebview, View, IDisposable
         {
             GlobalRegisteredCallbacks[action.Action]?.Invoke(action.Data);
         }
+    }
+
+    void ICustomWebview.GoBack()
+    {
+        throw new NotImplementedException();
+    }
+
+    void ICustomWebview.GoForward()
+    {
+        throw new NotImplementedException();
+    }
+
+    void ICustomWebview.Refresh()
+    {
+        throw new NotImplementedException();
+    }
+
+    Task<string> ICustomWebview.InjectJavascriptAsync(string js)
+    {
+        throw new NotImplementedException();
+    }
+
+    void ICustomWebview.AddLocalCallback(string functionName, Action<string> action)
+    {
+        throw new NotImplementedException();
+    }
+
+    void ICustomWebview.RemoveLocalCallback(string functionName)
+    {
+        throw new NotImplementedException();
+    }
+
+    void ICustomWebview.RemoveAllLocalCallbacks()
+    {
+        throw new NotImplementedException();
+    }
+
+    Task ICustomWebview.ClearCookiesAsync()
+    {
+        throw new NotImplementedException();
     }
 
     #endregion

@@ -1,8 +1,9 @@
 using Foundation;
+using Plugin.Maui.CustomWebView.Implementations;
 using UIKit;
 using WebKit;
 
-namespace Plugin.Maui.CustomWebview;
+namespace Plugin.Maui.CustomWebView;
 
 public class NavigationDelegate : WKNavigationDelegate
 {
@@ -73,19 +74,18 @@ public class NavigationDelegate : WKNavigationDelegate
         if (renderer.Element == null) return;
 
         renderer.Element.HandleNavigationCompleted(webView.Url.ToString());
-        await renderer.OnJavascriptInjectionRequest(FormsWebView.InjectedFunction);
+        await renderer.OnJavascriptInjectionRequest(ExtendedWebView.InjectedFunction);
 
         if (renderer.Element.EnableGlobalCallbacks)
-            foreach (var function in FormsWebView.GlobalRegisteredCallbacks)
-                await renderer.OnJavascriptInjectionRequest(FormsWebView.GenerateFunctionScript(function.Key));
+            foreach (var function in ExtendedWebView.GlobalRegisteredCallbacks)
+                await renderer.OnJavascriptInjectionRequest(ExtendedWebView.GenerateFunctionScript(function.Key));
 
         foreach (var function in renderer.Element.LocalRegisteredCallbacks)
-            await renderer.OnJavascriptInjectionRequest(FormsWebView.GenerateFunctionScript(function.Key));
+            await renderer.OnJavascriptInjectionRequest(ExtendedWebView.GenerateFunctionScript(function.Key));
 
         renderer.Element.CanGoBack = webView.CanGoBack;
         renderer.Element.CanGoForward = webView.CanGoForward;
         renderer.Element.Navigating = false;
         renderer.Element.HandleContentLoaded();
     }
-}
 }

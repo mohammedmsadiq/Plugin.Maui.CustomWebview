@@ -1,4 +1,7 @@
-namespace Plugin.Maui.CustomWebview;
+using Android.Webkit;
+using Java.Interop;
+
+namespace Plugin.Maui.CustomWebView;
 
 public class Bridge : Java.Lang.Object
     {

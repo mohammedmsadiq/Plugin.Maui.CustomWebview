@@ -1,6 +1,17 @@
-namespace Plugin.Maui.CustomWebview;
+using Android.Content;
+using Android.OS;
+using Android.Webkit;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Platform;
+using Plugin.Maui.CustomWebView.Enums;
+using Plugin.Maui.CustomWebView.Implementations;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using AndWebView = Android.Webkit;
+namespace Plugin.Maui.CustomWebView;
 
-public class CustomWebviewRenderer: ViewRenderer<CustomWebview, AndWebView.WebView>
+public class CustomWebviewRenderer: ViewRenderer<ExtendedWebView, AndWebView.WebView>
     {
 
         public static string MimeType = "text/html";
@@ -26,7 +37,7 @@ public class CustomWebviewRenderer: ViewRenderer<CustomWebview, AndWebView.WebVi
             var dt = DateTime.Now;
         }
 
-        protected override void OnElementChanged(ElementChangedEventArgs<CustomWebview> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Implementations.ExtendedWebView> e)
         {
             base.OnElementChanged(e);
 
@@ -45,7 +56,7 @@ public class CustomWebviewRenderer: ViewRenderer<CustomWebview, AndWebView.WebVi
                 Control.Settings.UseWideViewPort = true;
             }
         }
-        void SetupElement(CustomWebview element)
+        void SetupElement(Implementations.ExtendedWebView element)
         {
             element.PropertyChanged += OnPropertyChanged;
             element.OnJavascriptInjectionRequest += OnJavascriptInjectionRequest;
@@ -57,7 +68,7 @@ public class CustomWebviewRenderer: ViewRenderer<CustomWebview, AndWebView.WebVi
             SetSource();
         }
 
-        void DestroyElement(CustomWebview element)
+        void DestroyElement(Implementations.ExtendedWebView element)
         {
             element.PropertyChanged -= OnPropertyChanged;
             element.OnJavascriptInjectionRequest -= OnJavascriptInjectionRequest;
@@ -85,7 +96,7 @@ public class CustomWebviewRenderer: ViewRenderer<CustomWebview, AndWebView.WebVi
             webView.SetWebChromeClient(new ChromeClient(this));
             webView.SetBackgroundColor(Colors.Transparent.ToPlatform());
 
-            CustomWebview.CallbackAdded += OnCallbackAdded;
+        Implementations.ExtendedWebView.CallbackAdded += OnCallbackAdded;
 
             SetNativeControl(webView);
             OnControlChanged?.Invoke(this, webView);
@@ -96,7 +107,7 @@ public class CustomWebviewRenderer: ViewRenderer<CustomWebview, AndWebView.WebVi
             if (Element == null || string.IsNullOrWhiteSpace(e)) return;
 
             if ((sender == null && Element.EnableGlobalCallbacks) || sender != null)
-                await OnJavascriptInjectionRequest(CustomWebview.GenerateFunctionScript(e));
+                await OnJavascriptInjectionRequest(Implementations.ExtendedWebView.GenerateFunctionScript(e));
         }
 
         void OnForwardRequested(object sender, EventArgs e)
@@ -245,7 +256,7 @@ public class CustomWebviewRenderer: ViewRenderer<CustomWebview, AndWebView.WebVi
             // Add Global Headers
             if (Element.EnableGlobalHeaders)
             {
-                foreach (var header in CustomWebview.GlobalRegisteredHeaders)
+                foreach (var header in Implementations.ExtendedWebView.GlobalRegisteredHeaders)
                 {
                     if (!headers.ContainsKey(header.Key))
                         headers.Add(header.Key, header.Value);

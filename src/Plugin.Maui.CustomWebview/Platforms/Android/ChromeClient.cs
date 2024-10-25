@@ -1,4 +1,6 @@
-namespace Plugin.Maui.CustomWebview;
+using Android.Webkit;
+
+namespace Plugin.Maui.CustomWebView;
 
 public class ChromeClient: WebChromeClient
     {

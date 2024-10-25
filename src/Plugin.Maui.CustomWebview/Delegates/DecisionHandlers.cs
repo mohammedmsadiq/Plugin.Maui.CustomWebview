@@ -1,4 +1,4 @@
-namespace Plugin.Maui.CustomWebview.Delegates;
+namespace Plugin.Maui.CustomWebView.Delegates;
 
 public class DecisionHandlers
 {

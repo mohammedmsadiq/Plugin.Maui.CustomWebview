@@ -1,6 +1,6 @@
-namespace Plugin.Maui.CustomWebview.Enums;
+namespace Plugin.Maui.CustomWebView.Enums;
 
-public enum ContentType
+public enum WebViewContentType
 {
     Internet = 0,
     StringData = 1,

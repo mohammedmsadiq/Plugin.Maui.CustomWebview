@@ -1,19 +1,21 @@
-namespace Plugin.Maui.CustomWebview;
+using Android.Webkit;
+
+namespace Plugin.Maui.CustomWebView;
 
 public class JavascriptValueCallback : Java.Lang.Object, IValueCallback
 {
     public Java.Lang.Object Value { get; private set; }
 
-    readonly WeakReference<FormsWebViewRenderer> Reference;
+    readonly WeakReference<CustomWebviewRenderer> Reference;
 
-    public JavascriptValueCallback(FormsWebViewRenderer renderer)
+    public JavascriptValueCallback(CustomWebviewRenderer renderer)
     {
-        Reference = new WeakReference<FormsWebViewRenderer>(renderer);
+        Reference = new WeakReference<CustomWebviewRenderer>(renderer);
     }
 
     public void OnReceiveValue(Java.Lang.Object value)
     {
-        if (Reference == null || !Reference.TryGetTarget(out FormsWebViewRenderer renderer)) return;
+        if (Reference == null || !Reference.TryGetTarget(out CustomWebviewRenderer renderer)) return;
         Value = value;
     }
 

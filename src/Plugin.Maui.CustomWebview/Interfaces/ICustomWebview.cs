@@ -1,8 +1,11 @@
-namespace Plugin.Maui.CustomWebview.Interfaces;
+using Plugin.Maui.CustomWebView.Delegates;
+using Plugin.Maui.CustomWebView.Enums;
+
+namespace Plugin.Maui.CustomWebView.Interfaces;
 
 public interface ICustomWebview
 {
-    event EventHandler<DecisionHandlerDelegate> OnNavigationStarted;
+    event EventHandler<DecisionHandlers> OnNavigationStarted;
 
     event EventHandler<string> OnNavigationCompleted;
 

@@ -1,4 +1,6 @@
-namespace Plugin.Maui.CustomWebview.Models;
+using Newtonsoft.Json;
+
+namespace Plugin.Maui.CustomWebView.Models;
 
 [JsonObject]
 public class ActionEventModel
