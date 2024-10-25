@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Plugin.Maui.CustomWebview;
+﻿using Plugin.Maui.CustomWebView;
+using Plugin.Maui.CustomWebView.Implementations;
 
 namespace Plugin.Maui.CustomWebview.Sample;
 
@@ -14,10 +14,15 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			})
+			.ConfigureMauiHandlers(handlers =>
+			{
+#if ANDROID || IOS
+				handlers.AddHandler(typeof(ExtendedWebView), typeof(CustomWebviewRenderer));
+#endif
 			});
 
 		builder.Services.AddTransient<MainPage>();
-		builder.Services.AddSingleton<ICustomWebview>(CustomWebview.Default);
 
 		return builder.Build();
 	}

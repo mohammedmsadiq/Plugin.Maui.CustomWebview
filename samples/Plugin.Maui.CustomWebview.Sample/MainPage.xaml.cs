@@ -1,4 +1,5 @@
-﻿using Plugin.Maui.CustomWebview;
+﻿using Plugin.Maui.CustomWebView;
+using Plugin.Maui.CustomWebView.Interfaces;
 
 namespace Plugin.Maui.CustomWebview.Sample;
 
