@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Plugin.Maui.CustomWebView.Implementations;
 using Plugin.Maui.CustomWebview;
 
 namespace Plugin.Maui.CustomWebview.Sample;
@@ -23,7 +23,6 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddTransient<MainPage>();
-		builder.Services.AddSingleton<ICustomWebview>(CustomWebview.Default);
 
 		return builder.Build();
 	}
