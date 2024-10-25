@@ -14,6 +14,12 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			})
+			.ConfigureMauiHandlers(handlers =>
+			{
+#if ANDROID || IOS
+				handlers.AddHandler(typeof(ExtendedWebView), typeof(CustomWebviewRenderer));
+#endif
 			});
 
 		builder.Services.AddTransient<MainPage>();
