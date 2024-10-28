@@ -3,7 +3,7 @@ using Plugin.Maui.CustomWebView.Implementations;
 using UIKit;
 using WebKit;
 
-namespace Plugin.Maui.CustomWebView;
+namespace Plugin.Maui.CustomWebView.Platforms.iOS;
 
 public class NavigationDelegate : WKNavigationDelegate
 {
