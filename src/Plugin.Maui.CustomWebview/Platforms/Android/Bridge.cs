@@ -1,7 +1,7 @@
 using Android.Webkit;
 using Java.Interop;
 
-namespace Plugin.Maui.CustomWebView.Platforms.Android
+namespace Plugin.Maui.CustomWebView.Platforms.Android;
 
 public class Bridge : Java.Lang.Object
     {

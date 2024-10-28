@@ -8,7 +8,7 @@ using System.ComponentModel;
 using UIKit;
 using WebKit;
 
-namespace Plugin.Maui.CustomWebView.Platforms.iOS
+namespace Plugin.Maui.CustomWebView.Platforms.iOS;
 
 public class CustomWebviewRenderer : ViewRenderer<ExtendedWebView, WKWebView>, IWKScriptMessageHandler, IWKUIDelegate
 {
