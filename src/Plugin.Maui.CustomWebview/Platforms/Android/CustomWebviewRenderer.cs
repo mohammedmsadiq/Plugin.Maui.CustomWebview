@@ -9,7 +9,7 @@ using Plugin.Maui.CustomWebView.Implementations;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using AndWebView = Android.Webkit;
-namespace Plugin.Maui.CustomWebView.Platforms.Android;
+namespace Plugin.Maui.CustomWebView;
 
 public class CustomWebviewRenderer: ViewRenderer<ExtendedWebView, AndWebView.WebView>
     {

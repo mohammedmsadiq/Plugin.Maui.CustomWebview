@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Plugin.Maui.CustomWebview.Sample;
+namespace Plugin.Maui.CustomWebView.Sample;
 
 public class Program
 {

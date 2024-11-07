@@ -1,4 +1,4 @@
-﻿namespace Plugin.Maui.CustomWebview.Sample;
+﻿namespace Plugin.Maui.CustomWebView.Sample;
 
 public partial class AppShell : Shell
 {

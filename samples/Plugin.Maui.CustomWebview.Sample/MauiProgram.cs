@@ -1,7 +1,7 @@
 ﻿using Plugin.Maui.CustomWebView;
 using Plugin.Maui.CustomWebView.Implementations;
 
-namespace Plugin.Maui.CustomWebview.Sample;
+namespace Plugin.Maui.CustomWebView.Sample;
 
 public static class MauiProgram
 {
@@ -17,10 +17,8 @@ public static class MauiProgram
 			})
 			.ConfigureMauiHandlers(handlers =>
 			{
-#if ANDROID
-				handlers.AddHandler(typeof(ExtendedWebView), typeof(Plugin.Maui.CustomWebView.Platforms.Android.CustomWebviewRenderer));
-#elif IOS
-				handlers.AddHandler(typeof(ExtendedWebView), typeof(Plugin.Maui.CustomWebView.Platforms.iOS.CustomWebviewRenderer));
+#if ANDROID || IOS
+				handlers.AddHandler(typeof(ExtendedWebView), typeof(CustomWebviewRenderer));
 #endif
 			});
 
