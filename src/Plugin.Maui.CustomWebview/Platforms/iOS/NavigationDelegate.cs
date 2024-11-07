@@ -1,9 +1,9 @@
 using Foundation;
-using Plugin.Maui.CustomWebView.Implementations;
+using Plugin.Maui.CustomWebview.Implementations;
 using UIKit;
 using WebKit;
 
-namespace Plugin.Maui.CustomWebView;
+namespace Plugin.Maui.CustomWebview;
 
 public class NavigationDelegate : WKNavigationDelegate
 {

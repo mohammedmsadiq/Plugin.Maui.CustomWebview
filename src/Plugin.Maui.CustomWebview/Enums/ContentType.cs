@@ -1,4 +1,4 @@
-namespace Plugin.Maui.CustomWebView.Enums;
+namespace Plugin.Maui.CustomWebview.Enums;
 
 public enum WebViewContentType
 {

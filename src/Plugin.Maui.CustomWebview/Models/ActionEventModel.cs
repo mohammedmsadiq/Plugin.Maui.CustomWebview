@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Plugin.Maui.CustomWebView.Models;
+namespace Plugin.Maui.CustomWebview.Models;
 
 [JsonObject]
 public class ActionEventModel

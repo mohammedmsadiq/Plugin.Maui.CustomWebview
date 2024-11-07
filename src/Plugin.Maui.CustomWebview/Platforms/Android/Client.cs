@@ -6,11 +6,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Webkit;
 using Android.Widget;
-using Plugin.Maui.CustomWebView.Implementations;
+using Plugin.Maui.CustomWebview.Implementations;
 using AndroidWebView = Android.Webkit;
 using Uri = Android.Net.Uri;
 
-namespace Plugin.Maui.CustomWebView;
+namespace Plugin.Maui.CustomWebview;
 
 public class Client : WebViewClient
     {

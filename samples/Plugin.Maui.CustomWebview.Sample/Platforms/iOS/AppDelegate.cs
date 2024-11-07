@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Plugin.Maui.CustomWebView.Sample;
+namespace Plugin.Maui.CustomWebview.Sample;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

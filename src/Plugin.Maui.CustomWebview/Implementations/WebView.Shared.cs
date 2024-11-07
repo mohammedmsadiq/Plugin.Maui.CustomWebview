@@ -1,8 +1,8 @@
 using System.Net.Mime;
-using Plugin.Maui.CustomWebView.Enums;
-using WebViewContentType = Plugin.Maui.CustomWebView.Enums.WebViewContentType;
+using Plugin.Maui.CustomWebview.Enums;
+using WebViewContentType = Plugin.Maui.CustomWebview.Enums.WebViewContentType;
 
-namespace Plugin.Maui.CustomWebView.Implementations;
+namespace Plugin.Maui.CustomWebview.Implementations;
 
 public partial class ExtendedWebView
 {
