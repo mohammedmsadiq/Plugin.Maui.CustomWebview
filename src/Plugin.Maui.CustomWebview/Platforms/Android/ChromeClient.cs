@@ -1,6 +1,6 @@
 using Android.Webkit;
 
-namespace Plugin.Maui.CustomWebView.Platforms.Android;
+namespace Plugin.Maui.CustomWebView;
 
 public class ChromeClient: WebChromeClient
     {

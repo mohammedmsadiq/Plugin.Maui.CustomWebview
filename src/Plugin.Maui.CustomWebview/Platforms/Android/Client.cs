@@ -10,7 +10,7 @@ using Plugin.Maui.CustomWebView.Implementations;
 using AndroidWebView = Android.Webkit;
 using Uri = Android.Net.Uri;
 
-namespace Plugin.Maui.CustomWebView.Platforms.Android;
+namespace Plugin.Maui.CustomWebView;
 
 public class Client : WebViewClient
     {

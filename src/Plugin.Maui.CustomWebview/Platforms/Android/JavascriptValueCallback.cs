@@ -1,6 +1,6 @@
 using Android.Webkit;
 
-namespace Plugin.Maui.CustomWebView.Platforms.Android;
+namespace Plugin.Maui.CustomWebView;
 
 public class JavascriptValueCallback : Java.Lang.Object, IValueCallback
 {
