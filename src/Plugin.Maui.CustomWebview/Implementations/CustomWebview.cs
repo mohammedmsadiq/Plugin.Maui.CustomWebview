@@ -1,12 +1,12 @@
 using Newtonsoft.Json;
-using Plugin.Maui.CustomWebView;
-using Plugin.Maui.CustomWebView.Interfaces;
-using Plugin.Maui.CustomWebView.Delegates;
-using Plugin.Maui.CustomWebView.Enums;
-using Plugin.Maui.CustomWebView.Models;
+using Plugin.Maui.CustomWebview;
+using Plugin.Maui.CustomWebview.Interfaces;
+using Plugin.Maui.CustomWebview.Delegates;
+using Plugin.Maui.CustomWebview.Enums;
+using Plugin.Maui.CustomWebview.Models;
 using System.Text;
 
-namespace Plugin.Maui.CustomWebView.Implementations;
+namespace Plugin.Maui.CustomWebview.Implementations;
 
 public partial class ExtendedWebView : View, ICustomWebview, IDisposable
 {

@@ -1,8 +1,8 @@
-﻿using Plugin.Maui.CustomWebView.Delegates;
-using Plugin.Maui.CustomWebView.Interfaces;
+﻿using Plugin.Maui.CustomWebview.Delegates;
+using Plugin.Maui.CustomWebview.Interfaces;
 using System.Net.Http;
 
-namespace Plugin.Maui.CustomWebView.Sample;
+namespace Plugin.Maui.CustomWebview.Sample;
 
 public partial class MainPage : ContentPage
 {

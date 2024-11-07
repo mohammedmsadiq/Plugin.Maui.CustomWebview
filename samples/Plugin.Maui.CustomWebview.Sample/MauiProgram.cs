@@ -1,7 +1,7 @@
-﻿using Plugin.Maui.CustomWebView;
-using Plugin.Maui.CustomWebView.Implementations;
+﻿using Plugin.Maui.CustomWebview;
+using Plugin.Maui.CustomWebview.Implementations;
 
-namespace Plugin.Maui.CustomWebView.Sample;
+namespace Plugin.Maui.CustomWebview.Sample;
 
 public static class MauiProgram
 {

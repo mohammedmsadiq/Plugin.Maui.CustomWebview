@@ -1,7 +1,7 @@
-using Plugin.Maui.CustomWebView.Delegates;
-using Plugin.Maui.CustomWebView.Enums;
+using Plugin.Maui.CustomWebview.Delegates;
+using Plugin.Maui.CustomWebview.Enums;
 
-namespace Plugin.Maui.CustomWebView.Interfaces;
+namespace Plugin.Maui.CustomWebview.Interfaces;
 
 public interface ICustomWebview
 {

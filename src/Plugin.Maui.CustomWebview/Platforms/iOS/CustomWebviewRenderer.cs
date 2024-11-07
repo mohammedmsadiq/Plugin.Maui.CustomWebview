@@ -2,13 +2,13 @@
 using Foundation;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Microsoft.Maui.Controls.Platform;
-using Plugin.Maui.CustomWebView.Enums;
-using Plugin.Maui.CustomWebView.Implementations;
+using Plugin.Maui.CustomWebview.Enums;
+using Plugin.Maui.CustomWebview.Implementations;
 using System.ComponentModel;
 using UIKit;
 using WebKit;
 
-namespace Plugin.Maui.CustomWebView;
+namespace Plugin.Maui.CustomWebview;
 
 public class CustomWebviewRenderer : ViewRenderer<ExtendedWebView, WKWebView>, IWKScriptMessageHandler, IWKUIDelegate
 {

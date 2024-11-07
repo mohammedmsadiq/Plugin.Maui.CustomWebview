@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Plugin.Maui.CustomWebView.Sample;
+namespace Plugin.Maui.CustomWebview.Sample;
 
 [Application]
 public class MainApplication : MauiApplication

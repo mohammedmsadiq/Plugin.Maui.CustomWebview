@@ -4,12 +4,12 @@ using Android.Webkit;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Microsoft.Maui.Controls.Platform;
 using Microsoft.Maui.Platform;
-using Plugin.Maui.CustomWebView.Enums;
-using Plugin.Maui.CustomWebView.Implementations;
+using Plugin.Maui.CustomWebview.Enums;
+using Plugin.Maui.CustomWebview.Implementations;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using AndWebView = Android.Webkit;
-namespace Plugin.Maui.CustomWebView;
+namespace Plugin.Maui.CustomWebview;
 
 public class CustomWebviewRenderer: ViewRenderer<ExtendedWebView, AndWebView.WebView>
     {
