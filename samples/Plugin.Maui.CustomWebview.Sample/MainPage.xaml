@@ -9,7 +9,9 @@
 
     <Grid RowDefinitions="*,*">
 
-        <WebView:ExtendedWebView x:Name="internetContent" ContentType="Internet" Source="https://www.xamarin.com" Grid.Row="0" />
+        <!-- <WebView Source="https://www.google.co.in" VerticalOptions="FillAndExpand"/> -->
+        <WebView:ExtendedWebView x:Name="internetContent" Grid.Row="0"  Source="https://www.youtube.com"/>
+        <!-- <lab:MarqueeLabel /> -->
 
         <WebView:ExtendedWebView x:Name="stringContent" ContentType="StringData" 
                                  Grid.Row="1"
