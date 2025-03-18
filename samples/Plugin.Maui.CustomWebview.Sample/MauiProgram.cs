@@ -17,8 +17,13 @@ public static class MauiProgram
 			})
 			.ConfigureMauiHandlers(handlers =>
 			{
-#if ANDROID || IOS
+#if ANDROID
 				handlers.AddHandler(typeof(ExtendedWebView), typeof(CustomWebviewRenderer));
+#endif
+#if IOS
+				handlers.AddHandler(typeof(ExtendedWebView), typeof(Plugin.Maui.CustomWebview.MyWebviewRenderer));
+				// handlers.AddHandler(typeof(ExtendedWebView), typeof(Plugin.Maui.CustomWebview.CustomWebviewRenderer));
+				
 #endif
 			});
 
