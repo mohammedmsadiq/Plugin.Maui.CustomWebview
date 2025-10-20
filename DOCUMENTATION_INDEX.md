@@ -168,9 +168,9 @@ All documentation files, with emphasis on ARCHITECTURE.md and DEVELOPER_GUIDE.md
 | README.md | 3 KB | Quick start | All users |
 | REPOSITORY_EXPLANATION.md | 16 KB | Complete overview | Users & developers |
 | ARCHITECTURE.md | 24 KB | Technical deep dive | Developers & architects |
-| DEVELOPER_GUIDE.md | 17 KB | Development guide | Contributors |
+| DEVELOPER_GUIDE.md | 20 KB | Development guide | Contributors |
 
-**Total comprehensive documentation**: ~60 KB covering all aspects of the plugin
+**Total comprehensive documentation**: ~72 KB covering all aspects of the plugin
 
 ---
 
