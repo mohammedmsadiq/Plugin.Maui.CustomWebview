@@ -490,12 +490,6 @@ dotnet build
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📝 Changelog
-
-### Version 1.0.7
-- Upgraded to .NET 9.0
-- Updated dependencies
-
 ### Version 1.0.x
 - Initial release with core functionality
 - Support for Android and iOS
