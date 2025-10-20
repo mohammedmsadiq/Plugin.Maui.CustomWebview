@@ -31,7 +31,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="[9.0.110,)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="[9.0.100,)" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="all" IsImplicitlyDefined="true" />
 		<PackageReference Include="System.Management" Version="9.0.0" Condition="$(TargetFramework.Contains('-windows')) == true" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

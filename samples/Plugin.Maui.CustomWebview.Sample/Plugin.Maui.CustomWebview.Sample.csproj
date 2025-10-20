@@ -49,6 +49,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\Plugin.Maui.CustomWebview\Plugin.Maui.CustomWebview.csproj" />
-	  <PackageReference Include="Microsoft.Maui.Controls" Version="[9.0.110,)" />
+	  <PackageReference Include="Microsoft.Maui.Controls" Version="[9.0.100,)" />
 	</ItemGroup>
 </Project>
