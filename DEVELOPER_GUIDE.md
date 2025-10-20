@@ -26,7 +26,7 @@
 - **Windows**: Visual Studio 2022 (17.8+) with .NET MAUI workload
 - **macOS**: Visual Studio for Mac or VS Code with C# extension, Xcode 15+
 - **Android**: Android SDK (API 21+)
-- **iOS**: Xcode 15+, macOS only
+- **iOS**: Xcode 15+, macOS only (minimum iOS 14.2 based on .csproj configuration)
 
 ### Clone and Initial Build
 
@@ -35,10 +35,13 @@
 git clone https://github.com/mohammedmsadiq/Plugin.Maui.CustomWebview.git
 cd Plugin.Maui.CustomWebview
 
+# Install .NET MAUI workloads (required)
+dotnet workload install maui
+
 # Restore dependencies
 dotnet restore
 
-# Build the plugin
+# Build the plugin (requires MAUI workloads)
 dotnet build src/Plugin.Maui.CustomWebview/Plugin.Maui.CustomWebview.csproj
 
 # Build the sample
@@ -79,8 +82,14 @@ dotnet build samples/Plugin.Maui.CustomWebview.Sample/Plugin.Maui.CustomWebview.
 
 3. Build and run:
    ```bash
+   # Install MAUI workloads first
+   dotnet workload install maui
+   
+   # Build
    dotnet build
-   dotnet run --project samples/Plugin.Maui.CustomWebview.Sample/Plugin.Maui.CustomWebview.Sample.csproj -f net8.0-android
+   
+   # Run (use -t:Run target)
+   dotnet build -t:Run --project samples/Plugin.Maui.CustomWebview.Sample/Plugin.Maui.CustomWebview.Sample.csproj -f net8.0-android
    ```
 
 ### macOS Development
@@ -91,11 +100,14 @@ For iOS development:
 # Ensure Xcode is installed
 xcode-select --install
 
+# Ensure MAUI workloads are installed
+dotnet workload install maui
+
 # Build for iOS simulator
 dotnet build samples/Plugin.Maui.CustomWebview.Sample/Plugin.Maui.CustomWebview.Sample.csproj -f net8.0-ios
 
-# Run on iOS simulator
-dotnet run --project samples/Plugin.Maui.CustomWebview.Sample/Plugin.Maui.CustomWebview.Sample.csproj -f net8.0-ios
+# Run on iOS simulator (use -t:Run target instead of dotnet run)
+dotnet build -t:Run samples/Plugin.Maui.CustomWebview.Sample/Plugin.Maui.CustomWebview.Sample.csproj -f net8.0-ios
 ```
 
 ---

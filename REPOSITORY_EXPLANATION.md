@@ -26,7 +26,7 @@ The plugin bridges the gap between .NET MAUI applications and web content, offer
 - **Enhanced WebView features**: Access platform-specific WebView capabilities
 
 ### Target Platforms
-- **iOS**: Version 11 and above (iOS 14.2+ in the codebase)
+- **iOS**: Version 14.2 and above (Note: README mentions iOS 11+, but the csproj specifies 14.2 as the minimum)
 - **Android**: API Level 21 (Android 5.0) and above
 - **.NET**: Built with .NET 8.0
 
