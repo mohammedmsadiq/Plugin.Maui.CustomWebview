@@ -173,6 +173,8 @@ public class MyWebviewRenderer : ViewHandler<ExtendedWebView, WebKit.WKWebView>
 
     void SetSource()
     {
+        if (VirtualView == null) return;
+
         switch (VirtualView.ContentType)
         {
             case WebViewContentType.Internet:
