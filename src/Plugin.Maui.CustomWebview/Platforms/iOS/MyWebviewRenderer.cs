@@ -8,6 +8,7 @@ using ObjCRuntime;
 using Plugin.Maui.CustomWebview.Enums;
 using Plugin.Maui.CustomWebview.Implementations;
 using System.ComponentModel;
+using System.Linq;
 using UIKit;
 using WebKit;
 
@@ -15,12 +16,45 @@ namespace Plugin.Maui.CustomWebview;
 
 public class MyWKUIDelegate : NSObject, IWKUIDelegate
 {
+    private UIViewController GetVisibleViewController()
+    {
+        UIViewController viewController = null;
+
+        if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
+        {
+            var window = UIApplication.SharedApplication.ConnectedScenes
+                .OfType<UIWindowScene>()
+                .SelectMany(scene => scene.Windows)
+                .FirstOrDefault(w => w.IsKeyWindow);
+
+            viewController = window?.RootViewController;
+        }
+        else
+        {
+#pragma warning disable CA1422 // Validate platform compatibility
+            viewController = UIApplication.SharedApplication.KeyWindow?.RootViewController;
+#pragma warning restore CA1422 // Validate platform compatibility
+        }
+
+        while (viewController?.PresentedViewController != null)
+        {
+            viewController = viewController.PresentedViewController;
+        }
+
+        return viewController;
+    }
+
     [Export("webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:completionHandler:")]
     public void RunJavaScriptAlertPanel(WebKit.WKWebView webView, string message, WKFrameInfo frame, Action completionHandler)
     {
         var alertController = UIAlertController.Create(null, message, UIAlertControllerStyle.Alert);
         alertController.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Default, null));
-        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(alertController, true, null);
+        
+        var viewController = GetVisibleViewController();
+        if (viewController != null)
+        {
+            viewController.PresentViewController(alertController, true, null);
+        }
 
         completionHandler();
     }
@@ -44,7 +78,11 @@ public class MyWKUIDelegate : NSObject, IWKUIDelegate
 
         }));
 
-        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(alertController, true, null);
+        var viewController = GetVisibleViewController();
+        if (viewController != null)
+        {
+            viewController.PresentViewController(alertController, true, null);
+        }
     }
 
     [Export("webView:runJavaScriptTextInputPanelWithPrompt:defaultText:initiatedByFrame:completionHandler:")]
@@ -73,7 +111,11 @@ public class MyWKUIDelegate : NSObject, IWKUIDelegate
 
         }));
 
-        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(alertController, true, null);
+        var viewController = GetVisibleViewController();
+        if (viewController != null)
+        {
+            viewController.PresentViewController(alertController, true, null);
+        }
     }
 }
 
