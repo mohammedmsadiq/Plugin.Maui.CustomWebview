@@ -442,7 +442,12 @@ public partial class MainPage : ContentPage
 - Attach event handlers before setting the `Source` property
 - Ensure handlers are not being garbage collected
 
-**4. Build errors about missing workloads**
+**4. Crashes when navigating away from WebView (iOS)**
+- This issue has been fixed in the latest version. Ensure you're using the most recent version of the plugin.
+- If you're still experiencing crashes, check that you're properly disposing of WebView instances when they're no longer needed.
+- The crash typically occurs when `PropertyChanged` events are triggered after the view has been removed from the visual tree.
+
+**5. Build errors about missing workloads**
 ```bash
 # Install required .NET MAUI workloads
 dotnet workload install maui
