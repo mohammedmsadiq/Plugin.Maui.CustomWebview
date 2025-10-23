@@ -213,6 +213,23 @@ public class MyWebviewRenderer : ViewHandler<ExtendedWebView, WebKit.WKWebView>
         base.ConnectHandler(platformView);
     }
 
+    protected override void DisconnectHandler(WKWebView platformView)
+    {
+        if (VirtualView != null)
+        {
+            VirtualView.PropertyChanged -= OnPropertyChanged;
+            VirtualView.OnJavascriptInjectionRequest -= OnJavascriptInjectionRequest;
+            VirtualView.OnClearCookiesRequested -= OnClearCookiesRequest;
+            VirtualView.OnBackRequested -= OnBackRequested;
+            VirtualView.OnForwardRequested -= OnForwardRequested;
+            VirtualView.OnRefreshRequested -= OnRefreshRequested;
+        }
+
+        ExtendedWebView.CallbackAdded -= OnCallbackAdded;
+
+        base.DisconnectHandler(platformView);
+    }
+
     void SetSource()
     {
         if (VirtualView == null) return;
@@ -286,7 +303,7 @@ public class MyWebviewRenderer : ViewHandler<ExtendedWebView, WebKit.WKWebView>
 
     async void OnCallbackAdded(object sender, string e)
     {
-        if (VirtualView == null || string.IsNullOrWhiteSpace(e)) return;
+        if (VirtualView == null || wkWebView == null || string.IsNullOrWhiteSpace(e)) return;
 
         if ((sender == null && VirtualView.EnableGlobalCallbacks) || sender != null)
             await OnJavascriptInjectionRequest(ExtendedWebView.GenerateFunctionScript(e));
@@ -294,6 +311,8 @@ public class MyWebviewRenderer : ViewHandler<ExtendedWebView, WebKit.WKWebView>
 
     void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
+        if (VirtualView == null) return;
+
         switch (e.PropertyName)
         {
             case "Source":
